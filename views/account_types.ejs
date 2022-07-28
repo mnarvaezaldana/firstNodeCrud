@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header'); -%>
+<body>
+    <div class="container">
+        <h1>Formulario de cuentas</h1>
+        <%- include('partials/account_type_form'); -%>
+        <h1>Tipos de cuentas</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">description</th>
+                <th scope="col">updated at</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% accountTypes.forEach( (accountType) => { %>
+                    <tr>
+                        <th scope="row"><%= accountType.id %></th>
+                        <td><%= accountType.name %></td>
+                        <td><%= accountType.description %></td>
+                        <td><%= accountType.createdAt %></td>
+                      </tr>        
+                <% }) %>
+            </tbody>
+          </table>
+        <%- include('partials/footer'); -%>
+    </div>
+</body>
+</html>
