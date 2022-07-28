@@ -58,6 +58,7 @@ app.get("/accounts", async (req, res) => {
 app.get("/account_with_account_type", async (req, res) => {
     let results = await accounts.findAll({include: [{model: AccountTypes}, {model: clients}]});
     console.log(JSON.stringify(results))
+    res.render(JSON.stringify(results))
 });
 
 app.get("/accounts_with_clients", async (req, res) => {
