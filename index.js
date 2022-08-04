@@ -1,5 +1,6 @@
 const dotenv = require('dotenv').config();
-const express = require('express')
+const express = require('express');
+const { getAccountTypes } = require('./controllers/accountTypes');
 const {AccountTypes, clients, accounts} = require('./models')
 
 const app = express();
@@ -17,11 +18,7 @@ app.get("/", (req, res) => {
 
 //READ
 app.get("/account_types", async (req, res) => {
-    console.log("this is the value")
-    let results = await AccountTypes.findAll({raw: true});
-    console.log(results);
-    res.render('account_types', {accountTypes: results});
-    //res.send("Tipos de cuentas")
+    getAccountTypes();
 })
 
 //ANOTHER READ
